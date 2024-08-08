@@ -1,0 +1,1 @@
+using Empinformation as service from '../../srv/service';
