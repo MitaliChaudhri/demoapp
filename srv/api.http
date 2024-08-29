@@ -1,0 +1,91 @@
+DELETE http://localhost:4004/browse/EMPINFO(ID=f03d385b-1d48-4aa9-8e8e-85e973e5fcb6)
+Content-Type: application/json
+ 
+{
+   
+"empname"        : "manish",
+            "test"      :"xyz1",
+            "emppos"       :"Technical",
+            "division"     : "b"
+}
+
+
+###
+POST  http://localhost:35083/browse/EMPINFO
+Content-Type: application/json
+ 
+{
+
+        "empid"            : "IDPL07",
+        "test"             : "Test1",
+        "empname"          : "Mitalee Chaudhari",
+        "emppos"           : "Associate Technical Consultant",
+        "division"         : "A",
+        "dept"             : "Sales",
+        "section"          : "Sales",
+        "worklocation"     : "Pune",
+        "supid"            : "IDPL08",
+        "supname"          : "Tushar Ladhe",
+        "empemail"         : "dumy@dummy.com",
+        "mgremail"         : "dummy@dummy.com",
+        "Address"          : "wakad",
+        "Pincode"          : "411007",
+        "state"            : "Maharashtra",
+        "Country"          : "India",
+        "Occupation"       : "Engineer",
+        "ResidentialProof" : "Adhar Card",
+        "BirthPlace"       : "Pune",
+        "IsAvailable"      : "Yes"
+}
+###
+PUT  http://localhost:35083/browse/EMPINFO(ID=be18a1a2-24b5-4801-b0e0-c652d2d71019)
+Content-Type: application/json
+ 
+{
+
+        "empid"            : "IDPL1770",
+        "test"             : "Test1",
+        "empname"          : "Mitalee Chaudhari",
+        "emppos"           : "Associate Technical Consultant",
+        "division"         : "A",
+        "dept"             : "Sales",
+        "section"          : "Sales",
+        "worklocation"     : "Pune",
+        "supid"            : "IDPL08",
+        "supname"          : "Tushar Ladhe",
+        "empemail"         : "dumy@dummy.com",
+        "mgremail"         : "dummy@dummy.com",
+        "Address"          : "wakad",
+        "Pincode"          : "411007",
+        "state"            : "Maharashtra",
+        "Country"          : "India",
+        "Occupation"       : "Engineer",
+        "ResidentialProof" : "Adhar Card",
+        "BirthPlace"       : "Pune",
+        "IsAvailable"      : "Yes"
+}
+
+###
+POST  http://localhost:35115/browse/Organization
+Content-Type: application/json
+ 
+{
+
+        "Orgname"            : "IDPL07",
+        "OrgID"             : "Test1",
+        "Orghead"          : "Mitalee Chaudhari",
+        "OrgUnit"         :"Main"
+       
+}
+###
+PUT  http://localhost:35115/browse/Organization(ID=c4031c91-2da9-496f-956a-fc54f3cf9bec)
+Content-Type: application/json
+ 
+{
+
+        "Orgname"            : "IDPL09",
+        "OrgID"             : "Test1",
+        "Orghead"          : "Mitalee Chaudhari",
+        "OrgUnit"         :"Main"
+       
+}

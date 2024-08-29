@@ -39,9 +39,53 @@ modules:
       - employeeinformation.zip
       name: employeeinformation
       target-path: resources/
+    - artifacts:
+      - project1.zip
+      name: project1
+      target-path: resources/
 - name: employeeinformation
   type: html5
   path: app/employeeinformation
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: DemoApp-destination-content
+  type: com.sap.application.content
+  requires:
+  - name: DemoApp-destination-service
+    parameters:
+      content-target: true
+  - name: DemoApp-repo-host
+    parameters:
+      service-key:
+        name: DemoApp-repo-host-key
+  - name: uaa_DemoApp
+    parameters:
+      service-key:
+        name: uaa_DemoApp-key
+  parameters:
+    content:
+      instance:
+        destinations:
+        - Name: demoapprouter_DemoApp_repo_host
+          ServiceInstanceName: DemoApp-html5-srv
+          ServiceKeyName: DemoApp-repo-host-key
+          sap.cloud.service: demoapprouter
+        - Authentication: OAuth2UserTokenExchange
+          Name: demoapprouter_uaa_DemoApp
+          ServiceInstanceName: DemoApp-xsuaa-service
+          ServiceKeyName: uaa_DemoApp-key
+          sap.cloud.service: demoapprouter
+        existing_destinations_policy: ignore
+  build-parameters:
+    no-source: true
+- name: project1
+  type: html5
+  path: app/project1
   build-parameters:
     build-result: dist
     builder: custom
@@ -65,7 +109,7 @@ resources:
   type: org.cloudfoundry.managed-service
   parameters:
     config:
-      HTML5Runtime_enabled: false
+      HTML5Runtime_enabled: true
       init_data:
         instance:
           destinations:
@@ -79,6 +123,13 @@ resources:
     service: destination
     service-name: DemoApp-destination-service
     service-plan: lite
+- name: uaa_DemoApp
+  type: org.cloudfoundry.managed-service
+  parameters:
+    path: ./xs-security.json
+    service: xsuaa
+    service-name: DemoApp-xsuaa-service
+    service-plan: application
 parameters:
   deploy_mode: html5-repo
   enable-parallel-deployments: true

@@ -8,7 +8,7 @@
 				>
 					<columns>
                     <Column minScreenWidth="Tablet" demandPopin="true">
-							<Text text="one"/>
+							<Text text="Status"/>
 						</Column>
 						<Column minScreenWidth="Tablet" demandPopin="true">
 							<Text text="Event Tracking Number"/>
