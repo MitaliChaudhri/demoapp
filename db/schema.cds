@@ -7,7 +7,7 @@ context Dsc {
 
 
     entity EMPINFO : cuid, managed {
-
+name:String(10);
         empid            : String(20);
         test             : String(10);
         empname          : String(100);
